@@ -56,6 +56,7 @@ function ContactForm() {
             });
             setEnviado(true);
             setFormData({ nombre: "", email: "", confirmEmail: "", telefono: "", confirmTelefono: "", mensaje: "" });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (err: any) {
             if (axios.isAxiosError(err)) {
                 const backendMessage = err.response?.data?.message || err.response?.data?.error;

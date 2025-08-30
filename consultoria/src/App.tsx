@@ -8,9 +8,12 @@ import '../node_modules/swiper/modules/autoplay.min.css';
 import { Pagination, Autoplay } from 'swiper/modules';
 import './css/styles.css';
 import ContactForm from "./components/ContactForm";
+import { useNavigate } from 'react-router-dom';
 
 
 const App: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleScroll = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -71,6 +74,19 @@ const App: React.FC = () => {
             >
               Contacto
             </Button>
+            <Button
+              color="inherit"
+              sx={{
+                transition: 'background 0.2s',
+                '&:hover': {
+                  backgroundColor: '#00413a',
+                  color: '#fff',
+                },
+              }}
+              onClick={() => navigate('/blog')}
+            >
+              Blog
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
@@ -90,11 +106,11 @@ const App: React.FC = () => {
             }}
         >
           {/* Texto descriptivo a la izquierda */}
-          <Box width="25%" height="90%" minWidth={0}>
+          <Box width="25%" height="90%" minWidth={0} display="flex" flexDirection="column" alignItems="center">
             <Typography variant="h4" gutterBottom sx={{ marginBottom: 20, textAlign: 'center' }}>
               Inicio
             </Typography>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={{ textAlign: 'center' }}>
               Bienvenido a nuestra página de inicio. Aquí encontrarás información general sobre nuestros servicios y cómo podemos ayudarte a alcanzar tus objetivos.
             </Typography>
           </Box>
@@ -224,13 +240,33 @@ const App: React.FC = () => {
           </Box>
 
           {/* Texto descriptivo a la derecha */}
-          <Box width="25%" height="90%" minWidth={0}>
+          <Box width="25%" height="90%" minWidth={0} display="flex" flexDirection="column" alignItems="center">
             <Typography variant="h4" gutterBottom sx={{ marginBottom: 20, textAlign: 'center' }}>
               Consultas
             </Typography>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={{ textAlign: 'center' }}>
               En esta sección puedes realizar consultas personalizadas sobre nuestros servicios. Nuestro equipo está listo para resolver tus dudas y ofrecerte soluciones adaptadas a tus necesidades.
             </Typography>
+            <Button
+              color="inherit"
+              sx={{
+                mt: 2,
+                backgroundColor: "#00594f",
+                color: "#fff",
+                borderRadius: "4px",
+                fontSize: "14px",
+                padding: "8px 20px",
+                transition: "background 0.2s",
+                '&:hover': {
+                  backgroundColor: "#00413a",
+                  color: "#fff",
+                },
+                boxShadow: "0 2px 6px rgba(0,0,0,0.08)"
+              }}
+              onClick={() => navigate('/ejemplos-consultas')}
+            >
+              Saber más
+            </Button>
           </Box>
         </Box>
 
@@ -246,11 +282,11 @@ const App: React.FC = () => {
           
         >
           {/* Texto descriptivo a la izquierda */}
-          <Box width="25%" height="90%" minWidth={0}>
-            <Typography variant="h4" gutterBottom sx={{  textAlign: 'center' }}>
+          <Box width="25%" height="90%" minWidth={0} display="flex" flexDirection="column" alignItems="center">
+            <Typography variant="h4" gutterBottom sx={{ textAlign: 'center' }}>
               Contacto
             </Typography>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={{ textAlign: 'center' }}>
               Ponte en contacto con nosotros para más información. Estamos disponibles para atender tus consultas y ayudarte a encontrar la mejor solución para tus necesidades.
             </Typography>
             <ContactForm />
